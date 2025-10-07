@@ -201,3 +201,21 @@ pm uninstall com.google.android.art
 [Android Server; n is not a function, unable to perform state transition](https://github.com/frida/frida/issues/2037#issuecomment-2317730036)
 
 以上两个问题猜测，frida-server安装失败或者执行失败和Android的art有关
+3. Redmi Note 11 Pro (android 11 MIUI 12.5.14) 安装frida-server 16.2.1报错
+```bash
+{"type":"error","description":"Error: invalid address","stack":"Error: invalid address\n    at Object.value [as patchCode] (frida/runtime/core.js:207:1)\n    at ln (frida/node_modules/frida-java-bridge/lib/android.js:1209:1)\n    at pn.activate (frida/node_modules/frida-java-bridge/lib/android.js:1275:1)\n    at mn.replace (frida/node_modules/frida-java-bridge/lib/android.js:1323:1)\n    at Function.set [as implementation] (frida/node_modules/frida-java-bridge/lib/class-factory.js:1185:1)\n    at Function.set [as implementation] (frida/node_modules/frida-java-bridge/lib/class-factory.js:1099:1)\n    at installLaunchTimeoutRemovalInstrumentation (/internal-agent.js:424:24)\n    at init (/internal-agent.js:51:3)\n    at c.perform (frida/node_modules/frida-java-bridge/lib/vm.js:12:1)\n    at _performPendingVmOps (frida/node_modules/frida-java-bridge/index.js:250:1)","fileName":"frida/runtime/core.js","lineNumber":207,"columnNumber":1}
+```
+解决方案:
+```bash
+adb shell setenforce 0
+```
+如果提示
+```bash
+setenforce: Couldn't set enforcing status to '0': Permission denied
+```
+输入
+```bash
+adb shell
+su
+setenforce 0
+```
