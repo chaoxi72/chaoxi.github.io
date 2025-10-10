@@ -196,9 +196,9 @@ pm uninstall com.google.android.art
 重启设备
 ```
 参考文档:
-[Latest Google Play System Update ruins Frida](https://github.com/frida/frida/issues/2958)
-[bug in function instrumentArtMethodInvocationFromInterpreter](https://github.com/frida/frida-java-bridge/issues/309)
-[Android Server; n is not a function, unable to perform state transition](https://github.com/frida/frida/issues/2037#issuecomment-2317730036)
+- [Latest Google Play System Update ruins Frida](https://github.com/frida/frida/issues/2958)
+- [bug in function instrumentArtMethodInvocationFromInterpreter](https://github.com/frida/frida-java-bridge/issues/309)
+- [Android Server; n is not a function, unable to perform state transition](https://github.com/frida/frida/issues/2037#issuecomment-2317730036)
 
 以上两个问题猜测，frida-server安装失败或者执行失败和Android的art有关
 3. Redmi Note 11 Pro (android 11 MIUI 12.5.14) 安装frida-server 16.2.1报错
